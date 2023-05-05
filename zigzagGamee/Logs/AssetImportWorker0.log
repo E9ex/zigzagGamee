@@ -288,3 +288,33 @@ Received Import Request.
   path: Assets/Prefabs
   artifactKey: Guid(e2effad83dc634b8e8349d6f1b20422a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs using Guid(e2effad83dc634b8e8349d6f1b20422a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '044fb857036cfe41cfa98176bdcd57fb') in 0.018330 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 217.246098 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(955d38d686cf64aeb8c09ec9e097b71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(955d38d686cf64aeb8c09ec9e097b71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c9c6364d5a4597c578d60a73ffd44f2') in 0.001975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.340498 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(9955e31930ea642aea8d9160bf89dc79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(9955e31930ea642aea8d9160bf89dc79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc7919bbf8acafc64bb3e1a5082519c5') in 0.001899 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.952116 seconds.
+  path: Assets/Sound
+  artifactKey: Guid(340d067d6223c4ad394344f51672f7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound using Guid(340d067d6223c4ad394344f51672f7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6edd33b4245c52aea5b46c19194150b1') in 0.001756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.410854 seconds.
+  path: Assets/Materials/ZeminMat.mat
+  artifactKey: Guid(bfd4d275716124d82b8ff9e396ef6886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/ZeminMat.mat using Guid(bfd4d275716124d82b8ff9e396ef6886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63741d54e8926c6d0c354d6524b722d1') in 0.907435 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 63.907458 seconds.
+  path: Assets/Materials/ZeminMat.mat
+  artifactKey: Guid(bfd4d275716124d82b8ff9e396ef6886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/ZeminMat.mat using Guid(bfd4d275716124d82b8ff9e396ef6886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fbdfc3973f3d0ba327e4016af6ee3f0') in 0.014540 seconds 

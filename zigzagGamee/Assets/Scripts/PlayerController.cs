@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class PlayerController : MonoBehaviour
 
 
     public float hizlanmaZorlugu;
+    float artisMiktari = 1f;
+
+
+    float score = 0f;
+    [SerializeField] Text scoreText;
     
 
 
@@ -46,6 +52,9 @@ public class PlayerController : MonoBehaviour
         Vector3 hareket = yon * speed * Time.deltaTime;//objemizin hareket değeri.
         speed += Time.deltaTime*hizlanmaZorlugu;
         transform.position += hareket;// hareket değerini sürekli pozisyonuma ekle
+
+        score += artisMiktari*speed*Time.deltaTime;
+        scoreText.text = "Score: "+((int)score).ToString();//score değişkeni integer dönüştürdük
     }
 
 

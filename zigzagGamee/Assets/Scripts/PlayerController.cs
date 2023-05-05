@@ -35,10 +35,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        Yoket(collision.gameObject);
         if (collision.gameObject.CompareTag("Zemin"))
         {
             groundSpawner.zeminOlustur();
         }
+    }
+    void Yoket(GameObject zemin)
+    {
+        Destroy(zemin);
+
     }
 
 

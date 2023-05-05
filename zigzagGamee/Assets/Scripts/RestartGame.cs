@@ -8,6 +8,7 @@ public class RestartGame : MonoBehaviour
     public static bool isRestart = false;
     public void restartgame()
     {
+        
         isRestart = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

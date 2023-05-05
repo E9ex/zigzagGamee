@@ -9,11 +9,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
      public GroundSpawner groundSpawner;
 
+    public static bool isdead = false;
+
     
 
 
     private void Update()
     {
+        if (isdead)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (yon.x==0)//z ekseninde hareket ediyor demektir.
@@ -25,6 +31,13 @@ public class PlayerController : MonoBehaviour
                 yon = Vector3.back;
             }
         }
+
+        if (transform.position.y<0.1f)
+        {
+            isdead = true;
+            Debug.Log("öldğm");
+            Destroy(this.gameObject,3f);
+        }
     }
     private void FixedUpdate()
     {
@@ -35,14 +48,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        Yoket(collision.gameObject);
+        
         if (collision.gameObject.CompareTag("Zemin"))
         {
+            StartCoroutine(Yoket(collision.gameObject));
             groundSpawner.zeminOlustur();
         }
     }
-    void Yoket(GameObject zemin)
+    IEnumerator Yoket(GameObject zemin)
     {
+        yield return new WaitForSeconds(0.2f);
+        zemin.AddComponent<Rigidbody>();//default olarak graviity kapali geliyor.
+
+
+        yield return new WaitForSeconds(0.4f);
         Destroy(zemin);
 
     }

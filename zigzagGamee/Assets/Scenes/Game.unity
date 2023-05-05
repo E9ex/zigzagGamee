@@ -923,6 +923,7 @@ MonoBehaviour:
   - {r: 0.0990566, g: 0.40063423, b: 1, a: 1}
   - {r: 0.12522249, g: 0.3962264, b: 0.38792545, a: 1}
   - {r: 0.8862745, g: 0.23921566, b: 0.7964651, a: 1}
+  zeminMat: {fileID: 2100000, guid: bfd4d275716124d82b8ff9e396ef6886, type: 2}
 --- !u!1 &1817863276
 GameObject:
   m_ObjectHideFlags: 0

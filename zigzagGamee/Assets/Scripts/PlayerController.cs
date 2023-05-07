@@ -1,14 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
 
     [Header("OUT component")]
     [SerializeField] float speed;
-    [SerializeField] Text scoreText, bestscoreText;
+    [SerializeField] TextMeshProUGUI scoreText, bestscoreText,bestScoreTextPlayGame;
     [SerializeField] GameObject restartPanel,PlayGamePanel;
 
 
@@ -23,22 +24,15 @@ public class PlayerController : MonoBehaviour
     float artisMiktari = 1f;
     int bestscore = 0;
     float score = 0;
-
-
-    
-  
-
-    
-
-
-
-
     private void Start()
     {
+
+        bestScoreTextPlayGame.text = "BestScore: "+PlayerPrefs.GetInt("bestscore").ToString();
         if (RestartGame.isRestart)
         {
             isdead = false;
             PlayGamePanel.SetActive(false);
+
         }
         bestscore = PlayerPrefs.GetInt("bestscore");
         bestscoreText.text = "Best: "+bestscore.ToString();
@@ -105,19 +99,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         zemin.AddComponent<Rigidbody>();//default olarak graviity kapali geliyor.
-
-
         yield return new WaitForSeconds(0.4f);
         Destroy(zemin);
 
     }
-
-
     public void playerGame()
     {
         isdead = false;
-
         PlayGamePanel.SetActive(false);
+        
     }
 
 }//Class

@@ -11,7 +11,7 @@ public class RestartGame : MonoBehaviour
         //ıjhha
         isRestart = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    }//efhuwgufwh
 
     public void ExitGame()
     {

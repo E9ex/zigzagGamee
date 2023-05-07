@@ -15,7 +15,7 @@ public class RestartGame : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        Application.Quit();//zort
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,28 +12,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] TextMeshProUGUI scoreText, bestscoreText,bestScoreTextPlayGame;
     [SerializeField] GameObject restartPanel,PlayGamePanel;
+    
+    
 
 
 
     [Header("publicler olanlar")]
     public GroundSpawner groundSpawner;
     public static bool isdead = true;
-    public float hizlanmaZorlugu;
+    public float hizlanmaZorlugu=0.01f;
 
 
     Vector3 yon = Vector3.left;
     float artisMiktari = 1f;
     int bestscore = 0;
     float score = 0;
+    
+    
     private void Start()
     {
-
+       
         bestScoreTextPlayGame.text = "BestScore: "+PlayerPrefs.GetInt("bestscore").ToString();
         if (RestartGame.isRestart)
         {
             isdead = false;
             PlayGamePanel.SetActive(false);
-
         }
         bestscore = PlayerPrefs.GetInt("bestscore");
         bestscoreText.text = "Best: "+bestscore.ToString();
@@ -81,10 +85,23 @@ public class PlayerController : MonoBehaviour
         speed += Time.deltaTime*hizlanmaZorlugu;
         transform.position += hareket;// hareket değerini sürekli pozisyonuma ekle
 
-        score += artisMiktari*speed*Time.deltaTime;
+       // score += artisMiktari*speed*Time.deltaTime;
         scoreText.text = "Score: "+((int)score).ToString();//score değişkeni integer dönüştürdük
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            score += 5;
+            Destroy(other.gameObject);
+            if (score % 30 == 0)
+            {
+                speed += .5f;
+            }
+        }
+        
+    }
 
     private void OnCollisionExit(Collision collision)
     {
@@ -94,6 +111,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Yoket(collision.gameObject));
             groundSpawner.zeminOlustur();
         }
+        
     }
     IEnumerator Yoket(GameObject zemin)
     {

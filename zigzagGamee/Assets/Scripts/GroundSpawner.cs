@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject sonzemin;
-
-
+    [SerializeField] GameObject startground;
+    [SerializeField]  GameObject[] grounds;
+    public static GroundSpawner instance;
+    
+    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -16,22 +22,23 @@ public class GroundSpawner : MonoBehaviour
         }
     }
 
-   public  void zeminOlustur()
+    public void zeminOlustur()
     {
-
         Vector3 yon;
 
-        if (Random.Range(0,2)==0)//0 gelirse x ekseninde zemin koy
+        if (Random.Range(0, 2) == 0) // randomly select 0 or 1
         {
             yon = Vector3.left;
         }
-        else//1 gelirse z ekseninde zemin koy 
+        else
         {
             yon = Vector3.back;
         }
-        sonzemin = Instantiate(sonzemin, sonzemin.transform.position +yon,sonzemin.transform.rotation);
+        int randomIndex = Random.Range(0, 2); 
+        GameObject newGround = Instantiate(grounds[randomIndex], startground.transform.position + yon,
+            startground.transform.rotation); 
+        startground = newGround; 
 
     }
 
-    
 }//claass

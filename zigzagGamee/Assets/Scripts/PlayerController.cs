@@ -21,14 +21,18 @@ public class PlayerController : MonoBehaviour
     public GroundSpawner groundSpawner;
     public static bool isdead = true;
     public float hizlanmaZorlugu=0.01f;
+    public Animator Congratsanim;
+    
 
 
     Vector3 yon = Vector3.left;
+    private bool mesaj = false;
     float artisMiktari = 1f;
     int bestscore = 0;
     float score = 0;
-    
-    
+
+   
+
     private void Start()
     {
        
@@ -84,7 +88,11 @@ public class PlayerController : MonoBehaviour
         Vector3 hareket = yon * speed * Time.deltaTime;//objemizin hareket değeri.
         speed += Time.deltaTime*hizlanmaZorlugu;
         transform.position += hareket;// hareket değerini sürekli pozisyonuma ekle
-
+        if (bestscore<score)
+        {
+            bestscore = (int)score;
+            PlayerPrefs.SetInt("bestscore", bestscore);
+        }
        // score += artisMiktari*speed*Time.deltaTime;
         scoreText.text = "Score: "+((int)score).ToString();//score değişkeni integer dönüştürdük
     }
@@ -95,6 +103,19 @@ public class PlayerController : MonoBehaviour
         {
             score += 5;
             Destroy(other.gameObject);
+           
+            if (score > bestscore)
+            {
+                bestscore = (int)score;
+                PlayerPrefs.SetInt("bestscore", bestscore);
+
+                if (!mesaj)
+                {
+                    Congratsanim.SetTrigger("NewHighScore");
+                    mesaj = true;
+                }
+            }
+
             if (score % 30 == 0)
             {
                 speed += .5f;
